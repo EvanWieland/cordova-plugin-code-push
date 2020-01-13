@@ -104,3 +104,5 @@ android.buildTypes.each {
 dependencies {
     compile 'com.nimbusds:nimbus-jose-jwt:5.1'
 }
+
+googleServices { disableVersionCheck = false }
