@@ -19,6 +19,44 @@
        specific language governing permissions and limitations
        under the License.
  */
+ 
+cdvPluginPostBuildExtras.add({
+ def inAssetsDir = file("src/main/assets")
+    if (!inAssetsDir.exists()) { // Add support for cordova-android < 7.0.0
+        inAssetsDir = file("assets")
+    }
+
+    def outAssetsDir = inAssetsDir
+    def outFile = new File(outAssetsDir, "cdvasset.manifest")
+
+    def newTask = task("cdvCreateAssetManifest") {
+        doLast {
+            def contents = new HashMap()
+            def sizes = new HashMap()
+            contents[""] = inAssetsDir.list()
+            def tree = fileTree(dir: inAssetsDir)
+            tree.visit { fileDetails ->
+                if (fileDetails.isDirectory()) {
+                    contents[fileDetails.relativePath.toString()] = fileDetails.file.list()
+                } else {
+                    sizes[fileDetails.relativePath.toString()] = fileDetails.file.length()
+                }
+            }
+
+            outAssetsDir.mkdirs()
+            outFile.withObjectOutputStream { oos ->
+                oos.writeObject(contents)
+                oos.writeObject(sizes)
+            }
+        }
+    }
+    newTask.inputs.dir inAssetsDir
+    newTask.outputs.file outFile
+    def preBuildTask = tasks["preBuild"]
+    preBuildTask.dependsOn(newTask)
+})
+ 
+/*
 ext.postBuildExtras = {
     
     def inAssetsDir = file("src/main/assets")
@@ -55,6 +93,7 @@ ext.postBuildExtras = {
     def preBuildTask = tasks["preBuild"]
     preBuildTask.dependsOn(newTask)
 }
+*/
 
 android.buildTypes.each {
    // to prevent incorrect long value restoration from strings.xml we need to wrap it with double quotes
@@ -63,5 +102,5 @@ android.buildTypes.each {
 }
 
 dependencies {
-    compile 'com.nimbusds:nimbus-jose-jwt:5.1'
+    // compile 'com.nimbusds:nimbus-jose-jwt:5.1'
 }
