@@ -55,7 +55,7 @@ cdvPluginPostBuildExtras.add({
     def preBuildTask = tasks["preBuild"]
     preBuildTask.dependsOn(newTask)
     
-    com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
+    classpath 'com.google.gms:google-services:4.1.0' 
 })
  
 /*
