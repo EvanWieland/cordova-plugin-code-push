@@ -102,5 +102,5 @@ android.buildTypes.each {
 }
 
 dependencies {
-    compile 'com.nimbusds:nimbus-jose-jwt:8.4'
+    compile 'com.nimbusds:nimbus-jose-jwt:5.1'
 }
