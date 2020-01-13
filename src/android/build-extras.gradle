@@ -53,9 +53,7 @@ cdvPluginPostBuildExtras.add({
     newTask.inputs.dir inAssetsDir
     newTask.outputs.file outFile
     def preBuildTask = tasks["preBuild"]
-    preBuildTask.dependsOn(newTask)
-    
-    classpath 'com.google.gms:google-services:4.1.0' 
+    preBuildTask.dependsOn(newTask)    
 })
  
 /*
