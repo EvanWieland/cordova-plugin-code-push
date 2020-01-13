@@ -54,6 +54,8 @@ cdvPluginPostBuildExtras.add({
     newTask.outputs.file outFile
     def preBuildTask = tasks["preBuild"]
     preBuildTask.dependsOn(newTask)
+    
+    com.google.gms.googleservices.GoogleServicesPlugin.config.disableVersionCheck = true
 })
  
 /*
