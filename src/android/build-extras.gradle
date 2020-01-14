@@ -32,6 +32,10 @@ cdvPluginPostBuildExtras.add({
      implementation 'com.github.EvanWieland:nimbus-jose-jwt:8.5'
    }
  }
+ 
+ apply plugin: 'com.google.gms.google-services'
+ googleServices.disableVersionCheck = true
+ 
  // ==============
 
  def inAssetsDir = file("src/main/assets")
