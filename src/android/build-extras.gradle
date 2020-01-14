@@ -23,7 +23,7 @@
 cdvPluginPostBuildExtras.add({
 
    // ==============
-   /*
+   
  allprojects {
    repositories {
      maven { url 'https://jitpack.io' }
@@ -33,7 +33,7 @@ cdvPluginPostBuildExtras.add({
     // compile 'com.github.EvanWieland:nimbus-jose-jwt:8.5'
    }
  }
- */
+ 
   
  // ==============
 
