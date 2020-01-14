@@ -33,7 +33,6 @@ cdvPluginPostBuildExtras.add({
    }
  }
  
- android.useAndroidX=true
  android.enableJetifier=true
  
  // ==============
