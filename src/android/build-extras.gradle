@@ -92,6 +92,20 @@ ext.postBuildExtras = {
     newTask.outputs.file outFile
     def preBuildTask = tasks["preBuild"]
     preBuildTask.dependsOn(newTask)
+    
+    // ==============
+    allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        implementation 'com.github.EvanWieland:nimbus-jose-jwt:8.4'
+    }
+    // ==============
+}
+
+    
 }
 */
 
@@ -106,13 +120,3 @@ dependencies {
     compile 'com.nimbusds:nimbus-jose-jwt:5.1'
 }
 */
-
-allprojects {
-    repositories {
-        maven { url 'https://jitpack.io' }
-    }
-
-    dependencies {
-        implementation 'com.github.EvanWieland:nimbus-jose-jwt:8.4'
-    }
-}
