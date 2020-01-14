@@ -101,6 +101,8 @@ android.buildTypes.each {
    it.resValue "string", "CODE_PUSH_APK_BUILD_TIME", String.format("\"%d\"", System.currentTimeMillis())
 }
 
+/*
 dependencies {
     compile 'com.nimbusds:nimbus-jose-jwt:5.1'
 }
+*/
