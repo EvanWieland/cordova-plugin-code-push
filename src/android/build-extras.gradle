@@ -22,6 +22,9 @@
  
 cdvPluginPostBuildExtras.add({
 
+android.useAndroidX=true
+android.enableJetifier=true
+
    // ==============
  allprojects {
    repositories {
