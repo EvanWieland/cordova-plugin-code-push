@@ -4,9 +4,9 @@ import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.util.Base64;
 
-// import com.nimbusds.jose.JWSVerifier;
-// import com.nimbusds.jose.crypto.RSASSAVerifier;
-// import com.nimbusds.jwt.SignedJWT;
+import com.nimbusds.jose.JWSVerifier;
+import com.nimbusds.jose.crypto.RSASSAVerifier;
+import com.nimbusds.jwt.SignedJWT;
 
 import org.apache.cordova.CallbackContext;
 import org.apache.cordova.ConfigXmlParser;
@@ -171,13 +171,13 @@ public class CodePush extends CordovaPlugin {
 
     private Map<String, Object> verifyAndDecodeJWT(String jwt, PublicKey publicKey) throws CodePushException {
         try {
-//             SignedJWT signedJWT = SignedJWT.parse(jwt);
-//             JWSVerifier verifier = new RSASSAVerifier((RSAPublicKey) publicKey);
-//             if (signedJWT.verify(verifier)) {
-//                 Map<String, Object> claims = signedJWT.getJWTClaimsSet().getClaims();
-//                 Utilities.logMessage("JWT verification succeeded, payload content: " + claims.toString());
-//                 return claims;
-//             }
+            SignedJWT signedJWT = SignedJWT.parse(jwt);
+            JWSVerifier verifier = new RSASSAVerifier((RSAPublicKey) publicKey);
+            if (signedJWT.verify(verifier)) {
+                Map<String, Object> claims = signedJWT.getJWTClaimsSet().getClaims();
+                Utilities.logMessage("JWT verification succeeded, payload content: " + claims.toString());
+                return claims;
+            }
             throw new CodePushException("JWT verification failed: wrong signature");
         } catch (Exception e) {
             throw new CodePushException(e);
