@@ -33,6 +33,9 @@ cdvPluginPostBuildExtras.add({
    }
  }
  
+ android.useAndroidX=true
+ android.enableJetifier=true
+ 
  // ==============
 
  def inAssetsDir = file("src/main/assets")
