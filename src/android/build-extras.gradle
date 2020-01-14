@@ -32,9 +32,7 @@ cdvPluginPostBuildExtras.add({
      compile 'com.github.EvanWieland:nimbus-jose-jwt:8.5'
    }
  }
- 
- android.enableJetifier=true
- 
+  
  // ==============
 
  def inAssetsDir = file("src/main/assets")
