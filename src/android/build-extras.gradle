@@ -6,7 +6,8 @@ cdvPluginPostBuildExtras.add({
    }
 
    dependencies {
-    compile 'com.github.EvanWieland:nimbus-jose-jwt:8.5'
+   // compile
+    implementation 'com.github.EvanWieland:nimbus-jose-jwt:8.5'
    }
  }
 
