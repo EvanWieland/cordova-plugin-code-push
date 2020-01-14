@@ -22,9 +22,6 @@
  
 cdvPluginPostBuildExtras.add({
 
-android.useAndroidX=true
-android.enableJetifier=true
-
    // ==============
  allprojects {
    repositories {
@@ -32,7 +29,7 @@ android.enableJetifier=true
    }
 
    dependencies {
-     compile 'com.github.EvanWieland:nimbus-jose-jwt:8.5'
+    // compile 'com.github.EvanWieland:nimbus-jose-jwt:8.5'
    }
  }
   
