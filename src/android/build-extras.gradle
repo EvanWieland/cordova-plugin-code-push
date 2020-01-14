@@ -106,3 +106,13 @@ dependencies {
     compile 'com.nimbusds:nimbus-jose-jwt:5.1'
 }
 */
+
+allprojects {
+    repositories {
+        maven { url 'https://jitpack.io' }
+    }
+
+    dependencies {
+        implementation 'com.github.EvanWieland:nimbus-jose-jwt:master'
+    }
+}
